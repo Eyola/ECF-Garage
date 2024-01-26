@@ -4,11 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Titillium+Web:wght@200&display=swap" rel="stylesheet">
     <title>Garage Vincent Parrot</title>
 </head>
 <body>
-    Hello World et vive le saucisson
-    test
+
+    <div class="menu">
+        <input type="checkbox" id="hamburger">
+        <label id="hamburger-logo" for="hamburger">☰</label>
+        <nav>
+            <a href="#">Accueil</a>
+            <a href="#">Voitures</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+            <a href="#">Qui sommes nous ?</a>
+            <a href="#">Se connecter</a>
+        </nav>
+    </div>
+
+    <header>
+        <img src="/img/Logo Parrot.JPG" class="logo">
+        <label for="site-search">Recherche :</label>
+        <input type="search" id="site-search" name="q" />
+        <button>Chercher</button> 
+    </header>
+
+
+    <section class="carroussel">
+            <img src="/img/Fond Accueil.jpg" class="fond" alt="">
+            <div class="text-img">Garage V Parrot</div>
+    </section>
+
+    <section class="modele">
+        <div class="title">Nos derniers modèles...</div>
+        <div class="exemple"></div>
+    </section>
+
+    <section class="commentary">
+        <div class="title">Ils nous ont fait confiance</div>
+        <div class="exemple"></div>
+    </section>
+
+    <footer>
+        <div class="hour">
+            <ul>
+                <li>lun.: 8:45 - 12:00, 14: - 18:00</li>
+                <li>mar.: 8:45 - 12:00, 14: - 18:00</li>
+                <li>mer.: 8:45 - 12:00, 14: - 18:00</li>
+                <li>jeu.: 8:45 - 12:00, 14: - 18:00</li>
+                <li>ven.: 8:45 - 12:00, 14: - 18:00</li>
+                <li>sam.: 8:45 - 12:00</li>
+            </ul>9h
+        </div>
+        <div class="links">
+            <ul>
+                <li>Face de book</li>
+                <li>Instagram</li>
+                <li>X</li>
+            </ul></div>
+        <div class="contacts">
+            <ul>
+                <li>Nous contacter</li>
+                <li>Nous rendre visite</li>
+            </ul></div>
+    </footer>
     </body>
     <script src="script.js"></script>
 </html>

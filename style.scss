@@ -1,0 +1,155 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: large;
+    font-weight: bold;
+}
+
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 95%;
+    height: auto;
+
+}
+
+.commentary {
+    width: 50%;
+    height: auto;
+    margin: auto;
+}
+
+footer {
+    display: flex;
+    background-color: lightblue;
+    width : 100%;
+    height: 150px;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 0.55em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+}
+
+.fond {
+    max-width: 95%;
+    display: block;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-img {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(100%);
+    z-index: 1;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: red;
+  }
+
+.modele {
+    width: 50%;
+    height: auto;
+    margin: auto;
+}
+
+.title {
+    background-color: red;
+    width: 6em;
+    height: 6em;
+    margin: 1em auto;
+    padding: 2em;
+    text-align: center;
+    font-size: 1em;
+}
+
+.exemple {
+    background-color: green;
+    width: 6em; 
+    height: 6em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+* {
+    /* Pour que les tailles soient correctes */
+    box-sizing: border-box;
+  }
+  
+  body {
+    /* Pour coller le menu au bord, sans espace */
+    margin: 0;
+  }
+  
+  .menu {
+    /* Pour que le menu reste en place quand on scroll */
+    position: fixed;
+    /* Pour que le menu ne soit pas sur le texte et que ce dernier puisse être sélectionné */
+    width: 0px;
+  }
+  
+  main {
+    /* Pour que le texte ne soit pas sous le menu */
+    margin-left: 50px;
+    width: 500px;
+    text-align: justify;
+  }
+  
+  #hamburger {
+    /* Pour que la checkbox ne s'affiche pas */
+    display: none;
+  }
+  
+  #hamburger-logo {
+    /* Pour que le curseur soit un pointeur */
+    cursor: pointer;
+    background: black;
+    width: 200px;
+    display: block;
+    color: white;
+    /* Pour que le menu hamburger s'affiche toujours */
+    text-align: right;
+    /* Pour que le menu hamburger soit "rangé" par défaut */
+    transform: translateX(-168px);
+    padding: 10px;
+  }
+  
+  nav {
+    display: flex;
+    flex-direction: column;
+    background: black;
+    overflow: hidden;
+    width: 200px;
+    /* Pour que les liens soient "rangés" par défaut */
+    transform: translateX(-200px);
+  }
+  
+  #hamburger-logo,
+  nav {
+    /* Pour qu'il y ait une animation */
+    transition: 0.7s;
+  }
+  
+  /* Lorsque #hamburger est coché, le #hamburger-logo et le nav qui sont dans le même parent changent de propriété */
+  #hamburger:checked ~ #hamburger-logo,
+  #hamburger:checked ~ nav {
+    /* Changement de la position pour afficher les menus */
+    transform: translate(0);
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+  }
+  
+  nav a:hover {
+    background: #444;
+  }
