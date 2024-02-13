@@ -80,6 +80,11 @@ footer {
     align-items: flex-start;
   }
 }
+@media screen and (min-width: 1024px) {
+  footer {
+    font-size: 1em;
+  }
+}
 
 .hour, .links, .contacts {
   width: 20em;
@@ -154,7 +159,7 @@ footer {
   justify-content: space-around;
   background-color: #D01110;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
   .menu-desktop {
     display: none;
   }
@@ -194,7 +199,7 @@ main {
 #hamburger-logo {
   /* Pour que le curseur soit un pointeur */
   cursor: pointer;
-  background: black;
+  background: #0A0A00;
   width: 200px;
   display: block;
   color: white;
@@ -245,5 +250,5 @@ nav a {
 }
 
 nav a:hover {
-  background: #444;
+  background: #5E7089;
 }/*# sourceMappingURL=style.css.map */
