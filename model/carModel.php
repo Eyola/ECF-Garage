@@ -1,25 +1,10 @@
 <?php
 
-class Car
-{
-    private string $car_id;
-    private string $car_brand;
-    private string $car_model;
-    private int $car_price;
-    private int $car_year;
-    private int $car_kilometer;
-    private string $car_description;
-    private string $car_img;
-}
+require_once "/pdoModel.php";
+require_once "/entities/car.php";
 
-class CarControler
+class CarModel extends PDO
 {
-    private PDO $pdo;
-
-    public function __construct(PDO $pdo)
-    {
-        $this->pdo = $pdo;
-    }
 
     public function addCar(
         string $car_brand,
@@ -30,6 +15,8 @@ class CarControler
         string $car_description,
         string $car_img
     ) {
+        /*  $car = new Car($car_brand...); */
+
         $statement = $this->pdo->prepare(
             'INSERT INTO car (car_id, car_brand, car_model, car_price, car_year, car_kilometer, car_description, car_img) 
             VALUES (UUID(), :car_brand, :car_model, :car_price, :car_year, :car_kilometer, :car_description, :car_img)'
@@ -42,5 +29,23 @@ class CarControler
         $statement->bindValue(':car_description', $car_description, PDO::PARAM_STR);
         $statement->bindValue(':car_img', $car_img, PDO::PARAM_STR);
         return $statement->execute();
+    }
+
+    /**
+     * Get the value of car_id
+     */
+    public function getCar_id()
+    {
+        return $this->car_id;
+    }
+
+    /**
+     * Set the value of car_id
+     *
+     * @return  self
+     */
+    public function setCar_id($car_id)
+    {
+        $this->car_id = $car_id;
     }
 }

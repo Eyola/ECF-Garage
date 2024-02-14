@@ -1,5 +1,7 @@
 <?php
 
+require_once "/pdoModel.php";
+
 class Commentary
 {
     private int $commentary_id;
@@ -10,14 +12,8 @@ class Commentary
     private string $commentary_message;
 }
 
-class CommentaryControler
+class CommentaryControler extends PDO
 {
-    private PDO $pdo;
-
-    public function __construct(PDO $pdo)
-    {
-        $this->pdo = $pdo;
-    }
 
     public function addCommentary(
         string $commentary_name,

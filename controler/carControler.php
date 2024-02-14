@@ -1,11 +1,29 @@
 <?php
 require_once "../model/carModel.php";
 
+/* class CarControler
+{
+    public function index()
+    {
+    }
+
+    public function addCar()
+    {
+    }
+
+    public function modifyCar()
+    {
+    }
+
+    public function deleteCar()
+    {
+    }
+} */
+
 try {
 
-    $pdo = new PDO('mysql:host=localhost;dbname=parrot', 'root', '');
 
-    $managerCar = new CarControler($pdo);
+    $managerCar = new CarModel($pdo);
     $managerCar->addCar(
         $_POST['brand'],
         $_POST['model'],
