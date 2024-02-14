@@ -28,7 +28,7 @@
     <a href="/html/commentary.php">Commentaires</a>
     <a href="/html/users.php">Utilisateurs</a>
     <a href="#">Qui sommes nous ?</a>
-    <a href="#">Se connecter</a>
+    <a href="/html/connect.php">Se connecter</a>
 </nav>
 
 <section class="carroussel">
