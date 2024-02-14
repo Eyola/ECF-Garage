@@ -77,6 +77,10 @@ footer {
         flex-direction: row;
         align-items: flex-start;
     }
+
+    @media screen and (min-width: 1024px) {
+        font-size: 1em;
+    }
 }
 
 
@@ -148,9 +152,9 @@ footer {
 .menu-desktop {
     display: flex;
     justify-content: space-around;
-    color: #A8BBB0;
     background-color: #D01110;
-    @media screen and (max-width:1024px) {
+
+    @media screen and (max-width:1023px) {
         display: none;
     }
 }
@@ -198,6 +202,7 @@ footer {
     /* Pour que le menu hamburger soit "rangé" par défaut */
     transform: translateX(-168px);
     padding: 10px;
+
     @media screen and (min-width:1024px) {
        display: none;
     }
@@ -236,5 +241,5 @@ footer {
   }
   
   nav a:hover {
-    background: #444;
+    background: #5E7089;
   }

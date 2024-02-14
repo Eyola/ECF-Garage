@@ -80,6 +80,11 @@ footer {
     align-items: flex-start;
   }
 }
+@media screen and (min-width: 1024px) {
+  footer {
+    font-size: 1em;
+  }
+}
 
 .hour, .links, .contacts {
   width: 20em;
@@ -155,7 +160,7 @@ footer {
   color: #A8BBB0;
   background-color: #D01110;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
   .menu-desktop {
     display: none;
   }
@@ -246,5 +251,5 @@ nav a {
 }
 
 nav a:hover {
-  background: #444;
+  background: #5E7089;
 }/*# sourceMappingURL=style.css.map */
