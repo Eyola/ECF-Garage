@@ -3,7 +3,7 @@
     <label id="hamburger-logo" for="hamburger">☰</label>
     <nav class="menu-burger">
         <a href="../index.php">Accueil</a>
-        <a href="www.google.fr">Voitures</a>
+        <a href="../views/carFormView.php">Voitures</a>
         <a href="#">Services</a>
         <a href="#">Contact</a>
         <a href="#">Qui sommes nous ?</a>
@@ -25,8 +25,8 @@
 <nav class="menu-desktop">
     <a href="../index.php">Accueil</a>
     <a href="/html/vehicle.php">Voitures</a>
-    <a href="#">Services</a>
-    <a href="#">Contact</a>
+    <a href="/html/commentary.php">Commentaires</a>
+    <a href="/html/users.php">Utilisateurs</a>
     <a href="#">Qui sommes nous ?</a>
     <a href="#">Se connecter</a>
 </nav>

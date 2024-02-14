@@ -14,6 +14,11 @@ require_once "head.php";
         <div class="exemple"></div>
     </section>
 
+    <div>
+        <?php
+        require_once "../views/carFormView.php"; ?>
+    </div>
+
 </div>
 
 <?php
