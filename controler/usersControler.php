@@ -1,11 +1,9 @@
 <?php
 require_once "../model/usersModel.php";
 
+
 try {
-
-    $pdo = new PDO('mysql:host=localhost;dbname=parrot', 'root', '');
-
-    $managerUser = new UsersControler($pdo);
+    $managerUser = new UsersModel();
     $managerUser->addUser(
         $_POST['role'],
         $_POST['name'],
@@ -14,5 +12,6 @@ try {
         $_POST['password']
     );
 } catch (PDOException $e) {
+    var_dump($e->getMessage());
     echo "La connexion a échouée";
 }

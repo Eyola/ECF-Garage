@@ -22,6 +22,8 @@
 
     <input type="submit" value="envoyer">
 
+    <input type="hidden" name="action" value="add">
+
 </form>
 
 <?php
