@@ -28,15 +28,21 @@ class UsersModel extends PDOServer
     {
         $user = $this->pdo->prepare('SELECT * FROM users WHERE users_mail = :email');
         $user->bindValue(':email', $usersMail, PDO::PARAM_STR);
-        echo $usersPassword;
         if ($user->execute()) {
             $userConnect = $user->fetch(PDO::FETCH_ASSOC);
-            var_dump($userConnect);
             if ($userConnect === false) {
                 echo "Identifiants invalides";
             } else {
                 if (password_verify($usersPassword, $userConnect['users_password'])) {
-                    echo "Bonjour" . ' ' . $userConnect['users_first_name'] . ' ' . $userConnect['users_name'] . ' et votre statut est ' . $userConnect['users_role'] . '.';
+                    echo "Bonjour" . ' ' . $userConnect['users_first_name'] . ' ' . $userConnect['users_name'] . ', votre statut est ' . $userConnect['users_role'] . '.';
+                    if ($userConnect['users_role'] === 'admin') {
+                        $_SESSION['admin'] = true;
+                        setcookie('admin', 'admin', time() + 3600, '/');
+                    } else if ($userConnect['users_role'] === 'user') {
+                        $_SESSION['user'] = true;
+                        $_SESSION['admin'] = false;
+                        setcookie('user', 'user', time() + 3600, '/');
+                    }
                 } else {
                     echo "C'est pas le bon mot de passe, CONNARD.";
                 }

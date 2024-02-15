@@ -27,8 +27,32 @@
     <a href="/html/vehicle.php">Voitures</a>
     <a href="/html/commentary.php">Commentaires</a>
     <a href="#">Qui sommes nous ?</a>
-    <a href="../views/userFormView.php">Utilisateurs</a>
-    <a href="/html/connect.php">Se connecter</a>
+    <?php
+    if (isset($_SESSION['admin']) and $_SESSION['admin'] === true) { ?>
+        <a href="../views/userFormView.php">Gestion du personnel</a>
+        <a href="../views/carFormView.php">Gestion voitures</a>
+        <form action="" method="post">
+            <input type="submit" value="Se déconnecter">
+            <?php
+            session_destroy();
+            ?>
+        </form>
+
+    <?php
+    } else if (isset($_SESSION['user']) and $_SESSION['user'] === true) { ?>
+        <a href="../views/carFormView.php">Gestion voitures</a>
+        <form action="" method="post">
+            <input type="submit" value="Se déconnecter">
+            <?php
+            session_destroy();
+            ?>
+        </form>
+    <?php
+    } else { ?>
+        <a href="/html/connect.php">Se connecter</a>
+
+    <?php
+    } ?>
 
 
 </nav>
