@@ -26,9 +26,11 @@
     <a href="../index.php">Accueil</a>
     <a href="/html/vehicle.php">Voitures</a>
     <a href="/html/commentary.php">Commentaires</a>
-    <a href="/html/users.php">Utilisateurs</a>
     <a href="#">Qui sommes nous ?</a>
+    <a href="../views/userFormView.php">Utilisateurs</a>
     <a href="/html/connect.php">Se connecter</a>
+
+
 </nav>
 
 <section class="carroussel">

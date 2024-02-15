@@ -1,12 +1,20 @@
+<?php
+
+require_once "../html/head.php";
+require_once "../html/header.php";
+
+
+?>
+
 <form action="" method="post">
-    <label for="role">Role</label>
-    <input type="text" name="role">
+
+
 
     <label for="name">Nom</label>
     <input type="text" name="name">
 
     <label for="firstName">Prénom</label>
-    <input type="text" name="firstame">
+    <input type="text" name="firstName">
 
     <label for="mail">Adresse mail</label>
     <input type="email" name="mail">
@@ -22,5 +30,7 @@
 <?php
 
 require_once "../controler/usersControler.php";
+#var_dump($_POST);
 
+require_once "../html/footer.php";
 ?>
