@@ -31,21 +31,25 @@
     if (isset($_SESSION['admin']) and $_SESSION['admin'] === true) { ?>
         <a href="../views/userFormView.php">Gestion du personnel</a>
         <a href="../views/carFormView.php">Gestion voitures</a>
-        <form action="" method="post">
-            <input type="submit" value="Se déconnecter">
-            <?php
-            session_destroy();
-            ?>
+        <a href="?logout">Log out</a>
+        <?php
+        if (isset($_GET['logout'])) {
+            session_unset();
+            header('Refresh:0');
+        }
+        ?>
         </form>
 
     <?php
     } else if (isset($_SESSION['user']) and $_SESSION['user'] === true) { ?>
         <a href="../views/carFormView.php">Gestion voitures</a>
-        <form action="" method="post">
-            <input type="submit" value="Se déconnecter">
-            <?php
-            session_destroy();
-            ?>
+        <a href="?logout">Log out</a>
+        <?php
+        if (isset($_GET['logout'])) {
+            session_unset();
+            header('Refresh:0');
+        }
+        ?>
         </form>
     <?php
     } else { ?>

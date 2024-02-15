@@ -8,6 +8,7 @@ try {
             $usersPassword = $_POST['password'];
             $managerUser = new UsersModel();
             $test = $managerUser->connectUser($usersMail, $usersPassword);
+            header("Refresh:0");
         }
     }
 } catch (PDOException $e) {

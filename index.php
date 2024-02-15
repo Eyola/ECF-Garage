@@ -3,11 +3,10 @@ require_once "html/head.php";
 ?>
 
 <div class="container">
+
     <?php
     require_once "html/header.php";
     ?>
-    <h2>Bienvenue sur la page d'accueil</h2>
-
 
     <section class="modele">
         <div class="title">Nos derniers modèles...</div>
