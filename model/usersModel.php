@@ -50,4 +50,11 @@ class UsersModel extends PDOServer
         }
         return $user->execute();
     }
+
+    public function deleteUser($usersMail)
+    {
+        $user = $this->pdo->prepare('DELETE * FROM users WHERE users_mail = :email');
+        $user->bindValue(':email', $usersMail, PDO::PARAM_STR);
+        return $user->execute();
+    }
 }

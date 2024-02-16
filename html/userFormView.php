@@ -1,20 +1,28 @@
-<form action="" method="post">
+<form action="" method="post" class="userForm">
 
 
 
-    <label for="name">Nom</label>
-    <input type="text" name="name">
+    <label for="name">Nom
 
-    <label for="firstName">Prénom</label>
-    <input type="text" name="firstName">
+        <input type="text" name="name">
+    </label>
 
-    <label for="mail">Adresse mail</label>
-    <input type="email" name="mail">
+    <label for="firstName">Prénom
 
-    <label for="password">Mot de passe</label>
-    <input type="password" name="password">
+        <input type="text" name="firstName">
+    </label>
 
-    <input type="submit" value="envoyer">
+    <label for="mail">Adresse mail
+
+        <input type="email" name="mail">
+    </label>
+
+    <label for="password">Mot de passe
+
+        <input type="password" name="password">
+    </label>
+
+    <input type="submit" value="ajouter">
     <input type="hidden" name="action" value="add">
 
 </form>
