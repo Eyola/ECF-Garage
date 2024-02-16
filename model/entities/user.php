@@ -9,15 +9,6 @@ class Users
     private string $usersMail;
     private string $usersPassword;
 
-    public function __construct(string $usersRole, string $usersName, string $usersFirstName, string $usersMail, string $usersPassword)
-    {
-        $this->setUsersRole($usersRole);
-        $this->setUsersName($usersName);
-        $this->setUsersFirstName($usersFirstName);
-        $this->setUsersMail($usersMail);
-        $this->setUsersPassword($usersPassword);
-    }
-
     /**
      * Get the value of usersId
      */

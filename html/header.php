@@ -26,9 +26,39 @@
     <a href="../index.php">Accueil</a>
     <a href="/html/vehicle.php">Voitures</a>
     <a href="/html/commentary.php">Commentaires</a>
-    <a href="/html/users.php">Utilisateurs</a>
     <a href="#">Qui sommes nous ?</a>
-    <a href="#">Se connecter</a>
+    <?php
+    if (isset($_SESSION['admin']) and $_SESSION['admin'] === true) { ?>
+        <a href="../views/gestion-utilisateurs.php">Gestion du personnel</a>
+        <a href="../views/carFormView.php">Gestion voitures</a>
+        <a href="?logout">Log out</a>
+        <?php
+        if (isset($_GET['logout'])) {
+            session_unset();
+            header('Refresh:0');
+        }
+        ?>
+        </form>
+
+    <?php
+    } else if (isset($_SESSION['user']) and $_SESSION['user'] === true) { ?>
+        <a href="../views/carFormView.php">Gestion voitures</a>
+        <a href="?logout">Log out</a>
+        <?php
+        if (isset($_GET['logout'])) {
+            session_unset();
+            header('Refresh:0');
+        }
+        ?>
+        </form>
+    <?php
+    } else { ?>
+        <a href="/html/connect.php">Se connecter</a>
+
+    <?php
+    } ?>
+
+
 </nav>
 
 <section class="carroussel">

@@ -18,5 +18,6 @@
 <?php
 
 require_once "../controler/commentaryControler.php";
+require_once "../html/footer.php";
 
 ?>
