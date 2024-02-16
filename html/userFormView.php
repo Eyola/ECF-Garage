@@ -1,11 +1,3 @@
-<?php
-
-require_once "../html/head.php";
-require_once "../html/header.php";
-
-
-?>
-
 <form action="" method="post">
 
 
@@ -30,7 +22,5 @@ require_once "../html/header.php";
 <?php
 
 require_once "../controler/usersControler.php";
-#var_dump($_POST);
 
-require_once "../html/footer.php";
 ?>
