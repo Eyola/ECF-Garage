@@ -11,16 +11,7 @@ class Car
     private string $carDescription;
     private string $carImg;
 
-    public function __construct(string $carBrand, string $carModel, int $carPrice, int $carYear, int $carKilometer, string $carDescription, string $carImg)
-    {
-        $this->setCarBrand($carBrand);
-        $this->setCarModel($carModel);
-        $this->setCarPrice($carPrice);
-        $this->setCarYear($carYear);
-        $this->setCarKilometer($carKilometer);
-        $this->setCarDescription($carDescription);
-        $this->setCarImg($carImg);
-    }
+
 
     /**
      * Get the value of carId

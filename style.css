@@ -119,17 +119,17 @@ footer {
   font-size: 1em;
 }
 
-.exemple {
+.car {
   background-color: green;
 }
 
-.exemple, .title {
+.car, .title {
   width: 21.2em;
   height: 21.2em;
   margin: 1em 0.25em;
 }
 @media screen and (min-width: 1440px) {
-  .exemple, .title {
+  .car, .title {
     width: 19.1em;
     height: 19.1em;
   }
@@ -163,6 +163,11 @@ footer {
   .menu-desktop {
     display: none;
   }
+}
+
+.vehicle {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 * {
