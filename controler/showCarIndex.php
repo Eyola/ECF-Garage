@@ -6,7 +6,7 @@ require_once "./model/entities/car.php";
 
 try {
 
-    $sql = "SELECT car_brand, car_model, car_price, car_year, car_kilometer, car_img FROM car";
+    $sql = "SELECT car_brand, car_model, car_price, car_year, car_kilometer, car_img FROM car LIMIT 3";
     $car = new PDOServer();
     $res = $car->getAll('Car', $sql);
     foreach ($res as $value) {
