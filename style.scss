@@ -118,11 +118,11 @@ footer {
     font-size: 1em;
 }
 
-.exemple {
+.car {
     background-color: green;
 }
 
-.exemple, .title {
+.car, .title {
     width: 21.2em; 
     height: 21.2em;
     margin: 1em 0.25em;
@@ -159,6 +159,12 @@ footer {
     }
 }
 
+.vehicle {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
 * {
     /* Pour que les tailles soient correctes */
     box-sizing: border-box;
@@ -170,6 +176,7 @@ footer {
     margin: 0;
   }
   
+
   .menu {
     /* Pour que le menu reste en place quand on scroll */
     position: fixed;
