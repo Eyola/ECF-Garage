@@ -51,7 +51,13 @@ users_password varchar(60) NOT NULL
 
 INSERT INTO users (users_id, users_role, users_name, users_first_name, users_mail, users_password) VALUES
 (857, 'admin', 'Parrot', 'Vincent', 'vincent.parrot@garage.fr', '$2y$10$zB525MFCK1NQVETaPp6dxO3aCeI3w/6bcjGJbIqI2o81tArEBnI4K');
-````
+
+INSERT INTO car (car_id, car_brand, car_model, car_price, car_year, car_kilometer, car_description, car_img) VALUES
+('822e5c6b-d03d-11ee-ae21-408d5c4b144d', 'Peugeot', '308', 12000, 2016, 150000, 'Une voiture récente', '308.jpg'),
+('93e98ece-d03c-11ee-ae21-408d5c4b144d', 'Renault', 'Clio', 6000, 2014, 175000, 'Une voiture sympa', 'Clio.jpg'),
+('996aa9c8-d03d-11ee-ae21-408d5c4b144d', 'Dacia', 'Sandero', 13000, 2018, 135000, 'Une voiture plus grosse', 'Dacia.jpg'),
+('bf54a755-d03d-11ee-ae21-408d5c4b144d', 'Citroen', '2 chevaux', 15000, 1956, 384000, 'Une authentique !', '2cv.jpg');
+```
 
 Démarrer le navigateur web et entrer l'url suivante : <http://localhost/ECF-Garage/>
 
