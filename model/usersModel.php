@@ -1,36 +1,60 @@
 <?php
 
-class Users
+require_once "pdoModel.php";
+require_once "entities/user.php";
+
+class UsersModel extends PDOServer
 {
-    private int $users_id;
-    private string $users_role;
-    private string $users_name;
-    private string $users_first_name;
-    private string $users_mail;
-    private string $users_password;
-}
 
+    public function addUser(
+        string $usersName,
+        string $usersFirstName,
+        string $usersMail,
+        string $usersPassword
+    ) {
+        $user = $this->pdo->prepare(
+            'INSERT INTO users (users_name, users_first_Name, users_mail, users_password) 
+            VALUES (:usersName, :usersFirstName, :usersMail, :usersPassword)'
+        );
 
-class UsersControler
-{
-    private PDO $pdo;
-
-    public function __construct(PDO $pdo)
-    {
-        $this->pdo = $pdo;
+        $user->bindValue(':usersName', $usersName, PDO::PARAM_STR);
+        $user->bindValue(':usersFirstName', $usersFirstName, PDO::PARAM_STR);
+        $user->bindValue(':usersMail', $usersMail, PDO::PARAM_STR);
+        $user->bindValue(':usersPassword', password_hash($usersPassword, PASSWORD_BCRYPT));
+        return $user->execute();
     }
 
-    public function addUser(string $users_role, string $users_name, string $users_first_name, string $users_mail, string $users_password)
+    public function connectUser(string $usersMail, string $usersPassword)
     {
-        $statement = $this->pdo->prepare(
-            'INSERT INTO users (users_role, users_name, users_first_name, users_mail, users_password) 
-            VALUES (:users_role, :users_name, :users_first_name, :users_mail, :users_password)'
-        );
-        $statement->bindValue(':users_role', $users_role, PDO::PARAM_STR);
-        $statement->bindValue(':users_name', $users_name, PDO::PARAM_STR);
-        $statement->bindValue(':users_first_name', $users_first_name, PDO::PARAM_STR);
-        $statement->bindValue(':users_mail', $users_mail, PDO::PARAM_STR);
-        $statement->bindValue(':users_password', $users_password, PDO::PARAM_STR);
-        return $statement->execute();
+        $user = $this->pdo->prepare('SELECT * FROM users WHERE users_mail = :email');
+        $user->bindValue(':email', $usersMail, PDO::PARAM_STR);
+        if ($user->execute()) {
+            $userConnect = $user->fetch(PDO::FETCH_ASSOC);
+            if ($userConnect === false) {
+                echo "Identifiants invalides";
+            } else {
+                if (password_verify($usersPassword, $userConnect['users_password'])) {
+                    echo "Bonjour" . ' ' . $userConnect['users_first_name'] . ' ' . $userConnect['users_name'] . ', votre statut est ' . $userConnect['users_role'] . '.';
+                    if ($userConnect['users_role'] === 'admin') {
+                        $_SESSION['admin'] = true;
+                        setcookie('admin', 'admin', time() + 3600, '/');
+                    } else if ($userConnect['users_role'] === 'user') {
+                        $_SESSION['user'] = true;
+                        $_SESSION['admin'] = false;
+                        setcookie('user', 'user', time() + 3600, '/');
+                    }
+                } else {
+                    echo "C'est pas le bon mot de passe, CONNARD.";
+                }
+            }
+        }
+        return $user->execute();
+    }
+
+    public function deleteUser($usersMail)
+    {
+        $user = $this->pdo->prepare('DELETE * FROM users WHERE users_mail = :email');
+        $user->bindValue(':email', $usersMail, PDO::PARAM_STR);
+        return $user->execute();
     }
 }

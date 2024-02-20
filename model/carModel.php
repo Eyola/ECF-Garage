@@ -1,46 +1,31 @@
 <?php
 
-class Car
-{
-    private string $car_id;
-    private string $car_brand;
-    private string $car_model;
-    private int $car_price;
-    private int $car_year;
-    private int $car_kilometer;
-    private string $car_description;
-    private string $car_img;
-}
+require_once "pdoModel.php";
+require_once "entities/car.php";
 
-class CarControler
+class CarModel extends PDOServer
 {
-    private PDO $pdo;
-
-    public function __construct(PDO $pdo)
-    {
-        $this->pdo = $pdo;
-    }
 
     public function addCar(
-        string $car_brand,
-        string $car_model,
-        int $car_price,
-        int $car_year,
-        int $car_kilometer,
-        string $car_description,
-        string $car_img
+        string $carBrand,
+        string $carModel,
+        int $carPrice,
+        int $carYear,
+        int $carKilometer,
+        string $carDescription,
+        string $carImg
     ) {
-        $statement = $this->pdo->prepare(
+        $car = $this->pdo->prepare(
             'INSERT INTO car (car_id, car_brand, car_model, car_price, car_year, car_kilometer, car_description, car_img) 
-            VALUES (UUID(), :car_brand, :car_model, :car_price, :car_year, :car_kilometer, :car_description, :car_img)'
+            VALUES (UUID(), :carBrand, :carModel, :carPrice, :carYear, :carKilometer, :carDescription, :carImg)'
         );
-        $statement->bindValue(':car_brand', $car_brand, PDO::PARAM_STR);
-        $statement->bindValue(':car_model', $car_model, PDO::PARAM_STR);
-        $statement->bindValue(':car_price', $car_price, PDO::PARAM_INT);
-        $statement->bindValue(':car_year', $car_year, PDO::PARAM_INT);
-        $statement->bindValue(':car_kilometer', $car_kilometer, PDO::PARAM_INT);
-        $statement->bindValue(':car_description', $car_description, PDO::PARAM_STR);
-        $statement->bindValue(':car_img', $car_img, PDO::PARAM_STR);
-        return $statement->execute();
+        $car->bindValue(':carBrand', $carBrand, PDO::PARAM_STR);
+        $car->bindValue(':carModel', $carModel, PDO::PARAM_STR);
+        $car->bindValue(':carPrice', $carPrice, PDO::PARAM_INT);
+        $car->bindValue(':carYear', $carYear, PDO::PARAM_INT);
+        $car->bindValue(':carKilometer', $carKilometer, PDO::PARAM_INT);
+        $car->bindValue(':carDescription', $carDescription, PDO::PARAM_STR);
+        $car->bindValue(':carImg', $carImg, PDO::PARAM_STR);
+        return $car->execute();
     }
 }

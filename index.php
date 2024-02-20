@@ -1,7 +1,26 @@
 <?php
-
-
+require_once "html/head.php";
 ?>
-<a href="/views/carFormView.php">Formulaire de voiture</a><br>
-<a href="/views/userFormView.php">Formulaire d'utilisateurs</a><br>
-<a href="/views/commentaryFormView.php">Formulaire d'utilisateurs</a>
+
+<div class="container">
+
+    <?php
+    require_once "html/header.php";
+    ?>
+
+    <section class="modele">
+        <div class="title">Nos derniers modèles...</div>
+        <?php
+        require_once "controler/showCarIndex.php";
+        ?>
+    </section>
+
+    <section class="commentary">
+        <div class="title">Ils nous ont fait confiance</div>
+
+    </section>
+
+</div>
+
+<?php
+require_once "html/footer.php";

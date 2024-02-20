@@ -2,16 +2,16 @@
 require_once "../model/commentaryModel.php";
 
 try {
+    if (isset($_POST['action']) && $_POST['action'] === 'add') {
+        $commentaryName = $_POST['name'];
+        $commentaryFirstName = $_POST['firstName'];
+        $commentaryMail = $_POST['mail'];
+        $commentaryMessage = $_POST['message'];
 
-    $pdo = new PDO('mysql:host=localhost;dbname=parrot', 'root', '');
-
-    $managerCommentary = new CommentaryControler($pdo);
-    $managerCommentary->addCommentary(
-        $_POST['name'],
-        $_POST['first_name'],
-        $_POST['mail'],
-        $_POST['message']
-    );
+        $managerCommentary = new CommentaryModel();
+        $managerCommentary->addCommentary($commentaryName, $commentaryFirstName, $commentaryMail, $commentaryMessage);
+    }
 } catch (PDOException $e) {
+    var_dump($e->getMessage());
     echo "La connexion a échouée";
 }

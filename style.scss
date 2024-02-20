@@ -12,6 +12,10 @@ body {
     }
 } */
 
+.img_vehicle {
+    width: 100%;
+}
+
 .carroussel {
     display: flex;
     justify-content: center;
@@ -77,6 +81,10 @@ footer {
         flex-direction: row;
         align-items: flex-start;
     }
+
+    @media screen and (min-width: 1024px) {
+        font-size: 1em;
+    }
 }
 
 
@@ -114,11 +122,11 @@ footer {
     font-size: 1em;
 }
 
-.exemple {
+.car {
     background-color: green;
 }
 
-.exemple, .title {
+.car, .title {
     width: 21.2em; 
     height: 21.2em;
     margin: 1em 0.25em;
@@ -148,16 +156,36 @@ footer {
 .menu-desktop {
     display: flex;
     justify-content: space-around;
-    color: #A8BBB0;
     background-color: #D01110;
-    @media screen and (max-width:1024px) {
+
+    @media screen and (max-width:1023px) {
         display: none;
     }
 }
 
+.vehicle {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grpFilters {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.fieldsFilters {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
 * {
     /* Pour que les tailles soient correctes */
     box-sizing: border-box;
+    
   }
   
   body {
@@ -165,6 +193,7 @@ footer {
     margin: 0;
   }
   
+
   .menu {
     /* Pour que le menu reste en place quand on scroll */
     position: fixed;
@@ -198,6 +227,7 @@ footer {
     /* Pour que le menu hamburger soit "rangé" par défaut */
     transform: translateX(-168px);
     padding: 10px;
+
     @media screen and (min-width:1024px) {
        display: none;
     }
@@ -236,5 +266,45 @@ footer {
   }
   
   nav a:hover {
-    background: #444;
+    background: #5E7089;
+  }
+
+ .userTable {
+    border-collapse: collapse;
+    border: 2px solid rgb(200,200,200);
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    margin: auto;
+  }
+  
+  td, th {
+    border: 1px solid rgb(190,190,190);
+    padding: 10px 20px;
+  }
+  
+  th {
+    background-color: rgb(235,235,235);
+  }
+  
+  td {
+    text-align: center;
+  }
+  
+  tr:nth-child(even) td {
+    background-color: rgb(250,250,250);
+  }
+  
+  tr:nth-child(odd) td {
+    background-color: rgb(245,245,245);
+  }
+  
+  caption {
+    padding: 10px;
+  }
+
+  .userForm {
+    padding-top: 2em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
