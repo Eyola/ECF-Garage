@@ -1,6 +1,6 @@
 <?php
-require_once "../model/carModel.php";
-require_once "../model/entities/car.php";
+require_once "model/carModel.php";
+require_once "model/entities/car.php";
 
 
 
@@ -38,34 +38,34 @@ try {
             $params['priceHigh'] = $_POST['priceHigh'];
         }
 
-
         if ($filters) {
             // SELECT * FROM cars WHERE brand = :brand AND model = :model
             $sql .= ' WHERE ' . implode(' AND ', $filters);
         }
-
-        $pdo = new PDOServer();
-        $sth = $pdo->pdo->prepare($sql);
-        $sth->execute($params);
-
-        // retourne toutes les lignes des résultats de la BDD
-        while ($obj = $sth->fetchObject('Car'))
-            $results[] = $obj;
-        var_dump($results);
-
-
-        foreach ($results as $value) {
-            echo '<div class="car">';
-            echo '<div classe="brand"> Marque : ' . $value->car_brand . '</div>';
-            echo '<div classe="model"> Modèle : ' . $value->car_model . '</div>';
-            echo '<div classe="kilometer"> Kilometrage : ' . $value->car_kilometer . 'km ' . '</div>';
-            echo '<div classe="price"> Prix : ' . $value->car_price . '€' . '</div>';
-            if ($value->car_img) {
-                echo '<div><img class="img_vehicle" src="/img/vehicle/' . $value->car_img . '"/></div>';
-            }
-            echo '</div>';
-        }
     }
+
+    $pdo = new PDOServer();
+    $sth = $pdo->pdo->prepare($sql);
+    $sth->execute($params);
+
+    // retourne toutes les lignes des résultats de la BDD
+    while ($obj = $sth->fetchObject('Car')) {
+        $results[] = $obj;
+    }
+
+
+    foreach ($results as $value) {
+        echo '<div class="car">';
+        echo '<div class="brand"> Marque : ' . $value->car_brand . '</div>';
+        echo '<div class="model"> Modèle : ' . $value->car_model . '</div>';
+        echo '<div class="kilometer"> Kilometrage : ' . $value->car_kilometer . 'km ' . '</div>';
+        echo '<div class="price"> Prix : ' . $value->car_price . '€' . '</div>';
+        if ($value->car_img) {
+            echo '<div><img alt="img not found" class="img_vehicle" src="/img/vehicle/' . $value->car_img . '"/></div>';
+        }
+        echo '</div>';
+    }
+
     // $results
 } catch (PDOException $e) {
     var_dump($e->getMessage());

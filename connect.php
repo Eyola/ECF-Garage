@@ -1,9 +1,10 @@
+<!DOCTYPE html>
 <?php
-require_once "../html/head.php";
+require_once "html/head.php";
 ?>
 <div class="container">
     <?php
-    require_once "../html/header.php";
+    require_once "html/header.php";
     ?>
 
     <form action="" method="post">
@@ -17,8 +18,8 @@ require_once "../html/head.php";
         <input type="hidden" name="action" value="add">
 
         <?php
-        require_once "../controler/usersConnect.php";
-        require_once "../html/footer.php";
+        require_once "controler/usersConnect.php";
+        require_once "html/footer.php";
 
         ?>
 
