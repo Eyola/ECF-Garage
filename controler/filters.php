@@ -1,62 +1,49 @@
 <?php
-require_once "../model/carModel.php";
-require_once "../model/entities/car.php";
 
-$sql = 'SELECT * FROM cars';
+require_once '../model/pdoModel.php';
+require_once '../model/carModel.php';
 
 try {
+    $sql = 'SELECT DISTINCT car_brand, car_model, car_year, car_kilometer, car_price FROM car';
+    $results = [];
+    $params = [];
 
-    if (isset($_POST['action']) && $_POST['action'] == 'filter') {
-        $filters = [];
-        $params = [];
+    $pdo = new PDOServer();
+    $sth = $pdo->pdo->prepare($sql);
+    $sth->execute();
+    while ($obj = $sth->fetchObject('Car'))
+        $results[] = $obj;
 
-        if (isset($_POST['brand']) && $_POST['brand']) {
-            $filters[] = 'car_brand = :brand';
-            $params['car_brand'] = $_POST['brand'];
-        }
-
-        if (isset($_POST['model']) && $_POST['model']) {
-            $filters[] = 'model = :model';
-            $params['model'] = $_POST['model'];
-        }
-
-        if (isset($_POST['color']) && $_POST['color']) {
-            $filters[] = 'color = :color';
-            $params['color'] = $_POST['color'];
-        }
-
-        if (isset($_POST['priceLow']) && $_POST['priceLow'] && isset($_POST['priceHigh']) && $_POST['priceHigh']) {
-            $filters[] = '(:priceLow <= price AND price <= :priceHigh)';
-            $params['priceLow'] = $_POST['priceLow'];
-            $params['priceHigh'] = $_POST['priceHigh'];
-        }
-        echo "In filter.php : \$params";
-        var_dump($params);
-        echo "In filter.php : \$filters";
-        var_dump($filters);
-
-        $pdo = new PDOServer();
-        $res = $pdo->filters($filters, $sql, $params);
-        /* if ($filters)
-            // SELECT * FROM cars WHERE brand = :brand AND model = :model
-            $sql .= ' WHERE ' . implode(' AND ', $filters);
-        var_dump($sql);
-        $pdo = new PDOServer();
-        $sth = $pdo->getAll('CarModlel', $sql, $params);
-        $sth->execute($params);
-
-        // retourne que la 1ere ligne des résultats de la BDD
-        $sth->fetchObject('Car');
-
-        // retourne toutes les lignes des résultats de la BDD
-        $results = [];
-        while ($obj = $sth->fetchObject('Car'))
-            $results[] = $obj;
-    } */
-
-        // $results
+    echo '<fieldset class="fieldsFilters"><legend>MARQUES</legend>';
+    foreach ($results as $value) {
+        echo '<label for="brand">' . $value->car_brand . '<input type="checkbox" name="brand"' . $value->car_brand . '></label>';
     }
+    echo '</fieldset>';
+
+    echo '<fieldset class="fieldsFilters"><legend>Modèles</legend>';
+    foreach ($results as $value) {
+        echo '<label for="model">' . $value->car_model . '<input type="checkbox" name="model"' . $value->car_model . '></label>';
+    }
+    echo '</fieldset>';
+
+    echo '<fieldset class="fieldsFilters"><legend>Mise en circulation</legend>';
+    foreach ($results as $value) {
+        echo '<label for="year">' . $value->car_year . '<input type="checkbox" name="year"' . $value->car_year . '></label>';
+    }
+    echo '</fieldset>';
+
+    echo '<fieldset class="fieldsFilters"><legend>Kilometrage</legend>';
+    foreach ($results as $value) {
+        echo '<label for="kilometer">' . $value->car_kilometer . '<input type="checkbox" name="kilometer"' . $value->car_kilometer . '></label>';
+    }
+    echo '</fieldset>';
+
+    echo '<fieldset class="fieldsFilters"><legend>Prix</legend>';
+    foreach ($results as $value) {
+        echo '<label for="model">' . $value->car_model . '<input type="checkbox" name="model"' . $value->car_model . '></label>';
+    }
+    echo '</fieldset>';
 } catch (PDOException $e) {
     var_dump($e->getMessage());
-    echo "La connexion a échouée";
+    echo 'La connexion a échouée';
 }

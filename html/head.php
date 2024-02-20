@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <?php
 if (session_status() === PHP_SESSION_NONE) {

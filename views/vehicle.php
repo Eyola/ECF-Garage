@@ -7,36 +7,24 @@ require_once "../html/head.php";
     require_once "../html/header.php";
     ?>
     <div class="filter">
-        <form action="" method="post">
-            <?php require_once "../controler/filters.php"; ?>
-            <fieldset>
-                <legend>MARQUES</legend>
-                <label for="brand">Citroen</label>
-                <input type="checkbox" name="brand" id="brandbox" value="Citroen">
+        <form action="" method="post" class="formFilters">
+            <fieldset class="grpFilters">
+                <?php require_once "../controler/filters.php"; ?>
 
-                <label for="Renault">Renault</label>
-                <input type="checkbox" name="brand" id="brandbox" value="Renault">
 
-                <label for="Peugeot">Peugeot</label>
-                <input type="checkbox" name="brand" id="brandbox" value="Peugeot">
-
-                <label for="Dacia">Dacia</label>
-                <input type="checkbox" name="brand" id="brandbox" value="Dacia">
-
-                <label for="Nissan">Nissan</label>
-                <input type="checkbox" name="brand" id="brandbox" value="Nissan">
-
-                <input type="submit" formmethod="post" value="Filtrer">
-                <input type="hidden" name="action" value="filter">
             </fieldset>
 
+            <input type="submit" value="Filtrer">
+            <input type="hidden" name="action" value="filter">
 
 
         </form>
     </div>
+
+
     <section class="vehicle">
         <?php
-        require_once "../controler/showCar.php";
+        require_once "../controler/filtered.php";
         ?>
 
 

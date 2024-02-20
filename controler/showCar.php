@@ -1,6 +1,6 @@
 <?php
-require_once "./model/carModel.php";
-require_once "./model/entities/car.php";
+require_once "../model/carModel.php";
+require_once "../model/entities/car.php";
 
 
 

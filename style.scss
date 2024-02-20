@@ -12,6 +12,10 @@ body {
     }
 } */
 
+.img_vehicle {
+    width: 100%;
+}
+
 .carroussel {
     display: flex;
     justify-content: center;
@@ -163,6 +167,19 @@ footer {
     display: flex;
     flex-wrap: wrap;
 }
+
+.grpFilters {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.fieldsFilters {
+    display: flex;
+    flex-direction: column;
+}
+
 
 
 * {
