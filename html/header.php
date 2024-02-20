@@ -3,11 +3,39 @@
     <label id="hamburger-logo" for="hamburger">☰</label>
     <nav class="menu-burger">
         <a href="../index.php">Accueil</a>
-        <a href="../views/vehicle.php">Voitures</a>
-        <a href="#">Services</a>
-        <a href="#">Contact</a>
+        <a href="/views/vehicle.php">Voitures</a>
+        <a href="/html/commentary.php">Commentaires</a>
         <a href="#">Qui sommes nous ?</a>
-        <a href="#">Se connecter</a>
+        <?php
+        if (isset($_SESSION['admin']) and $_SESSION['admin'] === true) { ?>
+            <a href="../views/gestion-utilisateurs.php">Gestion du personnel</a>
+            <a href="../views/gestion-voiture.php">Gestion voitures</a>
+            <a href="?logout">Log out</a>
+            <?php
+            if (isset($_GET['logout'])) {
+                session_unset();
+                header('Refresh:0');
+            }
+            ?>
+            </form>
+
+        <?php
+        } else if (isset($_SESSION['user']) and $_SESSION['user'] === true) { ?>
+            <a href="../views/gestion-voiture.php">Gestion voitures</a>
+            <a href="?logout">Log out</a>
+            <?php
+            if (isset($_GET['logout'])) {
+                session_unset();
+                header('Refresh:0');
+            }
+            ?>
+            </form>
+        <?php
+        } else { ?>
+            <a href="/html/connect.php">Se connecter</a>
+
+        <?php
+        } ?>
     </nav>
 </div>
 
