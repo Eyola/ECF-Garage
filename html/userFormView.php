@@ -1,34 +1,32 @@
-<form action="" method="post" class="userForm">
+    <form action="" method="post" class="userForm">
 
 
 
-    <label for="name">Nom
+        <label for="name">Nom
 
-        <input type="text" name="name">
-    </label>
+            <input type="text" name="name" id="name">
+        </label>
 
-    <label for="firstName">Prénom
+        <label for="firstName">Prénom
 
-        <input type="text" name="firstName">
-    </label>
+            <input type="text" name="firstName" id="firstName">
+        </label>
 
-    <label for="mail">Adresse mail
+        <label for="mail">Adresse mail
 
-        <input type="email" name="mail">
-    </label>
+            <input type="email" name="mail" id="mail">
+        </label>
 
-    <label for="password">Mot de passe
+        <label for="password">Mot de passe
 
-        <input type="password" name="password">
-    </label>
+            <input type="password" name="password" id="password">
+        </label>
 
-    <input type="submit" value="ajouter">
-    <input type="hidden" name="action" value="add">
+        <input type="submit" value="ajouter">
+        <input type="hidden" name="action" value="add">
 
-</form>
+    </form>
 
-<?php
-
-require_once "../controler/usersControler.php";
-
-?>
+    <?php
+    require_once "controler/usersControler.php";
+    ?>

@@ -27,5 +27,5 @@
 
 <?php
 
-require_once "../controler/carControler.php";
+require_once "controler/carControler.php";
 ?>

@@ -1,5 +1,5 @@
 <?php
-require_once "../model/usersModel.php";
+require_once "model/usersModel.php";
 
 try {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -8,7 +8,7 @@ try {
             $usersPassword = $_POST['password'];
             $managerUser = new UsersModel();
             $test = $managerUser->connectUser($usersMail, $usersPassword);
-            header("Refresh:0");
+            header("Location:index.php");
         }
     }
 } catch (PDOException $e) {

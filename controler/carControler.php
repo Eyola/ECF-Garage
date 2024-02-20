@@ -1,5 +1,5 @@
 <?php
-require_once "../model/carModel.php";
+require_once "model/carModel.php";
 
 /* class CarControler
 {
@@ -33,14 +33,12 @@ try {
         $managerCar = new CarModel();
         $managerCar->addCar($brand, $model, $price, $year, $kilometer, $description, $img);
 
-        var_dump($_POST);
-        var_dump($_FILES);
-        $uploaddir = '../img/vehicle/';
+        $uploaddir = 'img/vehicle/';
         $uploadfile = $uploaddir . basename($_FILES['img']['name']);
 
         echo '<pre>';
         if (move_uploaded_file($_FILES['img']['tmp_name'], $uploadfile)) {
-            echo "File is valid, and was successfully uploaded.\n";
+            echo "L'envoi a été réalisé avec succès.\n";
         } else {
             echo "Possible file upload attack!\n";
         }

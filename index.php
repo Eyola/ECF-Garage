@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 require_once "html/head.php";
 ?>
@@ -8,19 +9,19 @@ require_once "html/head.php";
     require_once "html/header.php";
     ?>
 
-    <section class="modele">
+    <div class="modele">
         <div class="title">Nos derniers modèles...</div>
         <?php
         require_once "controler/showCarIndex.php";
         ?>
-    </section>
+    </div>
 
-    <section class="commentary">
+    <div class="commentary">
         <div class="title">Ils nous ont fait confiance</div>
 
-    </section>
+    </div>
 
 </div>
-<img src="" alt="">
+
 <?php
 require_once "html/footer.php";
