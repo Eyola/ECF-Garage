@@ -21,6 +21,6 @@ require_once "html/head.php";
     </section>
 
 </div>
-
+<img src="" alt="">
 <?php
 require_once "html/footer.php";
