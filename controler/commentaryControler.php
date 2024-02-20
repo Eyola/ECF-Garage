@@ -1,5 +1,5 @@
 <?php
-require_once "../model/commentaryModel.php";
+require_once "model/commentaryModel.php";
 
 try {
     if (isset($_POST['action']) && $_POST['action'] === 'add') {

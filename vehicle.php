@@ -1,15 +1,16 @@
 <?php
-require_once "../html/head.php";
+require_once "html/head.php";
+
 ?>
 <div class="container">
 
     <?php
-    require_once "../html/header.php";
+    require_once "html/header.php";
     ?>
     <div class="filter">
         <form action="" method="post" class="formFilters">
             <fieldset class="grpFilters">
-                <?php require_once "../controler/filters.php"; ?>
+                <?php require_once "controler/filters.php"; ?>
 
 
             </fieldset>
@@ -22,13 +23,13 @@ require_once "../html/head.php";
     </div>
 
 
-    <section class="vehicle">
+    <div class="vehicle">
         <?php
-        require_once "../controler/filtered.php";
+        require_once "controler/filtered.php";
         ?>
 
 
-    </section>
+    </div>
 
     <?php
-    require_once "../html/footer.php";
+    require_once "html/footer.php";
